@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>MGR-S</Name>
+    <Version>0.1.0</Version>
+    <Title>MGR-S Installer</Title>
+    <Publisher>MGR-S Team</Publisher>
+    <StartMenuDir>MGR-S</StartMenuDir>
+    <TargetDir>@ApplicationsDir@/MGR-S</TargetDir>
+    <Icon>resources/installer.ico</Icon>
+    <Logo>resources/logo.png</Logo>
+    <Watermark>resources/watermark.png</Watermark>
+    <WizardStyle>Modern</WizardStyle>
+    <ProductUrl>https://mgr-s.github.io/</ProductUrl>
+    <Contact>support@mgr-s.github.io</Contact>
+    <WindowTitle>MGR-S Installer</WindowTitle>
+    <MaintenanceToolName>MGR-S Maintenance</MaintenanceToolName>
+    <AllowSpaceInPath>true</AllowSpaceInPath>
+    <DefaultPage>Welcome</DefaultPage>
+    <RunProgram>@TargetDir@/mgrs_gui.py</RunProgram>
+    <RunProgramArguments />
+    <RunProgramDescription>Run MGR-S</RunProgramDescription>
+</Installer>

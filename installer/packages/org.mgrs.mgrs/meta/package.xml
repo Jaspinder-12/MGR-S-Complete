@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>MGR-S</DisplayName>
+    <Description>A Multi-GPU Runtime System for Windows</Description>
+    <Version>0.1.0</Version>
+    <ReleaseDate>2023-10-05</ReleaseDate>
+    <Name>org.mgrs.mgrs</Name>
+    <Dependences />
+    <Virtual>false</Virtual>
+    <Licenses>
+        <License name="MIT License" file="license.txt" />
+    </Licenses>
+    <Default>true</Default>
+    <ForcedInstallation>true</ForcedInstallation>
+</Package>

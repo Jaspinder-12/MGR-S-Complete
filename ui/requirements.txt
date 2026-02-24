@@ -1,0 +1,15 @@
+# MGR-S Requirements
+# Install with: pip install -r requirements.txt
+
+# Real-time system monitoring (CPU, RAM, etc.)
+psutil>=5.9.0
+
+# Windows GPU detection via WMI (optional but recommended on Windows)
+wmi>=1.5.1; sys_platform == 'win32'
+
+# System tray icon support
+pystray>=0.19.4
+Pillow>=10.0.0
+
+# Plotting (future: embed matplotlib charts in GUI)
+matplotlib>=3.8.0
