@@ -1,0 +1,53 @@
+# Binaries
+/herald
+bin/
+*.exe
+
+# Database
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Config with secrets
+herald.yaml
+!configs/herald.example.yaml
+
+# Environment
+.env
+
+# Work directory
+work/
+
+# Go
+vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Air hot reload
+tmp/
+.air.toml
+
+# Test artifacts
+coverage.out
+coverage.html
+
+# Spec & planning docs (not shipped)
+/.claude/
+docs/internal/
+PLAN.md
+/ACTION_PLAN.md
+/docs/internal/E2E_TEST_PLAN.md
+/HERALD_RUN_SPEC.md
+/internal/store/:memory:
+/.mcpregistry_github_token
+/.mcpregistry_registry_token

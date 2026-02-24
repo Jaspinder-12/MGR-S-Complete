@@ -1,0 +1,15 @@
+# System files
+Thumb.db
+desktop.ini
+
+# App-specific exclusions
+Uninstall/
+*.exe
+!mgrs_app.exe # Keeping the main app exe if it's the core of the project
+
+# Sensitive data
+.env
+*.log
+
+# Git
+.git/
