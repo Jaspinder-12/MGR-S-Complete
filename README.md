@@ -6,9 +6,13 @@ MGR-S is a comprehensive software-only, explicit, and engine-integrated multi-GP
 
 - **Main Runtime**: Core components for frame decomposition, memory ownership, and timeline synchronization.
 - **MGRS Bridge**: Integrated observability and task management bridge (formerly Herald), enabling remote monitoring and bridge capabilities for Claude Chat and Claude Code.
-- **Sub-modules**:
-  - `mgrs-bridge/`: Go-based bridge server for observability.
-  - Core C++ runtime (residing in the root and project subdirectories).
+- **Release Directory**:
+  - `mgrs_app.exe`: The primary release executable for the MGR-S application.
+
+## Download
+
+You can find the latest release executable directly in the root of the repository:
+[Download mgrs_app.exe](https://github.com/Jaspinder-12/MGR-S-Complete/blob/main/mgrs_app.exe)
 
 ## Features
 
