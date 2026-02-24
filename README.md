@@ -30,3 +30,7 @@ You can find the latest release files directly in the root of the repository:
 
 ---
 *Created and maintained by [Jaspinder-12](https://github.com/Jaspinder-12)*
+
+## License
+
+This project is released into the public domain under the [Unlicense](LICENSE).
