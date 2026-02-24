@@ -11,8 +11,9 @@ MGR-S is a comprehensive software-only, explicit, and engine-integrated multi-GP
 
 ## Download
 
-You can find the latest release executable directly in the root of the repository:
-[Download mgrs_app.exe](https://github.com/Jaspinder-12/MGR-S-Complete/blob/main/mgrs_app.exe)
+You can find the latest release files directly in the root of the repository:
+- [Download mgrs_app.exe (Standalone)](https://github.com/Jaspinder-12/MGR-S-Complete/blob/main/mgrs_app.exe)
+- [Download mgrs_setup.exe (Installer)](https://github.com/Jaspinder-12/MGR-S-Complete/blob/main/mgrs_setup.exe)
 
 ## Features
 
