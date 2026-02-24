@@ -28,7 +28,7 @@ PrivilegesRequired=lowest
 ArchitecturesInstallIn64BitMode=x64
 ArchitecturesAllowed=x64
 WizardStyle=modern
-SetupIconFile=.\resources\icon.ico
+SetupIconFile=.\resources\mgrs_icon.ico
 ; MinVersion: Windows 10 1903+
 MinVersion=10.0.18362
 
@@ -42,7 +42,7 @@ Name: "autostart";      Description: "Launch MGR-S on Windows startup";  GroupDe
 
 [Files]
 ; ── PyInstaller bundle (preferred) ──
-Source: "..\ui\dist\mgrs_app\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: FileExists(ExpandConstant('{src}\..\ui\dist\mgrs_app\mgrs_app.exe'))
+Source: "..\dist\mgrs_app.exe"; DestDir: "{app}"; Flags: ignoreversion; Check: FileExists(ExpandConstant('{src}\..\dist\mgrs_app.exe'))
 
 ; ── Raw Python fallback (if exe not built yet) ──
 Source: "..\ui\mgrs_gui.py";       DestDir: "{app}\src"; Flags: ignoreversion
@@ -54,10 +54,10 @@ Source: "..\ui\mgrs_tray.py";      DestDir: "{app}\src"; Flags: ignoreversion
 Source: "..\ui\requirements.txt";  DestDir: "{app}\src"; Flags: ignoreversion
 
 ; ── Icon ──
-Source: ".\resources\icon.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: ".\resources\mgrs_icon.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 ; ── Helper scripts ──
-Source: ".\install_deps.bat"; DestDir: "{app}"; Flags: ignoreversion; Check: FileExists(ExpandConstant('{src}.\install_deps.bat'))
+; Source: ".\install_deps.bat"; DestDir: "{app}"; Flags: ignoreversion; Check: FileExists(ExpandConstant('{src}.\install_deps.bat'))
 
 [Dirs]
 Name: "{app}\logs"
@@ -65,11 +65,11 @@ Name: "{app}\src"
 
 [Icons]
 ; Start menu
-Name: "{group}\MGR-S";                    Filename: "{app}\mgrs_app.exe";  WorkingDir: "{app}"; IconFilename: "{app}\icon.ico"; Tasks: startmenu
+Name: "{group}\MGR-S";                    Filename: "{app}\mgrs_app.exe";  WorkingDir: "{app}"; IconFilename: "{app}\mgrs_icon.ico"; Tasks: startmenu
 Name: "{group}\{cm:UninstallProgram,MGR-S}"; Filename: "{uninstallexe}"
 
 ; Desktop
-Name: "{commondesktop}\MGR-S";            Filename: "{app}\mgrs_app.exe";  WorkingDir: "{app}"; IconFilename: "{app}\icon.ico"; Tasks: desktopicon
+Name: "{userdesktop}\MGR-S";            Filename: "{app}\mgrs_app.exe";  WorkingDir: "{app}"; IconFilename: "{app}\mgrs_icon.ico"; Tasks: desktopicon
 
 ; Windows startup (registry)
 [Registry]

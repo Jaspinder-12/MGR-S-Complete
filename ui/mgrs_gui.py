@@ -19,12 +19,30 @@ import os
 import sys
 
 # ── Setup logging ────────────────────────────────────────────────────────────
+def get_app_root():
+    """Returns the stable application root, even when frozen by PyInstaller."""
+    if getattr(sys, 'frozen', False):
+        # Running as a bundled EXE (Onefile)
+        # Use the directory containing the EXE
+        return os.path.dirname(sys.executable)
+    # Running from source
+    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+APP_ROOT = get_app_root()
+LOG_DIR = os.path.join(APP_ROOT, "logs")
+if not os.path.exists(LOG_DIR):
+    try:
+        os.makedirs(LOG_DIR, exist_ok=True)
+    except Exception:
+        # Fallback to current directory if logs subfolder cannot be created
+        LOG_DIR = APP_ROOT
+
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler(os.path.join(os.path.dirname(__file__), "..", "logs", "mgrs.log"),
+        logging.FileHandler(os.path.join(LOG_DIR, "mgrs.log"),
                             encoding="utf-8", errors="replace")
     ]
 )
@@ -440,7 +458,7 @@ class MgrsApp:
         self._main.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
         # Custom Tab Switcher (Underline style)
-        tab_bar = tk.Frame(main, bg=C["bg"])
+        tab_bar = tk.Frame(self._main, bg=C["bg"])
         tab_bar.pack(fill=tk.X, pady=(0, 24))
         
         self._tabs = {}

@@ -15,8 +15,8 @@ import sys
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 HERE = os.path.dirname(os.path.abspath(SPEC))     # j:\GPU linking\ui
-ROOT = os.path.join(HERE, "..")                   # j:\GPU linking
-ICON = os.path.join(ROOT, "installer", "resources", "icon.ico")
+ROOT = os.path.join(HERE, "..")                   # j:\MGR-S
+ICON = os.path.join(HERE, "resources", "mgrs_icon.ico")
 LOG_DIR = os.path.join(ROOT, "logs")
 
 
@@ -32,10 +32,9 @@ a = Analysis(
         (os.path.join(HERE, "mgrs_scheduler.py"), "."),
         (os.path.join(HERE, "mgrs_memory.py"),    "."),
         (os.path.join(HERE, "mgrs_tray.py"),      "."),
-        # Bundle the icon
         (ICON, "."),
         # Bundle a blank first_launch marker template
-        (os.path.join(ROOT, "installer", "resources", "icon.ico"), "installer\\resources"),
+        (ICON, "installer\\resources"),
     ],
     hiddenimports=[
         "tkinter",
@@ -75,30 +74,22 @@ pyz = PYZ(a.pure, a.zipped_data, cipher=None)
 exe = EXE(
     pyz,
     a.scripts,
+    a.binaries,
+    a.zipfiles,
+    a.datas,
     [],
-    exclude_binaries=True,
-    name="mgrs_app",
+    name='mgrs_app',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
     upx_exclude=[],
-    console=False,        # Windowless — no cmd popup
+    runtime_tmpdir=None,
+    console=False,
     disable_windowed_traceback=False,
+    argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
     icon=ICON if os.path.exists(ICON) else None,
-    version_file=None,
-)
-
-coll = COLLECT(
-    exe,
-    a.binaries,
-    a.zipfiles,
-    a.datas,
-    strip=False,
-    upx=True,
-    upx_exclude=[],
-    name="mgrs_app",
 )

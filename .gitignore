@@ -4,8 +4,15 @@ desktop.ini
 
 # App-specific exclusions
 Uninstall/
+build/
+dist/
+ui/build/
+ui/dist/
+installer/Output/
+installer/Assets/
 *.exe
-!mgrs_app.exe # Keeping the main app exe if it's the core of the project
+!mgrs_app.exe
+!mgrs_setup.exe
 
 # Sensitive data
 .env
